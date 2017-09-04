@@ -1,3 +1,21 @@
 
 # @JS
-very lightweight tool to change your @ attached strings into links.
+Very lightweight tool to change your @ prefixed strings into links.
+
+# Usage
+Load it inside you html file then:
+```Js
+atJs({
+    tagName : "#test",
+    baseUrl: "www.mysitename.com/users/"
+});
+```
+It will get #test's content and replace it's @s with links with href of baseUrl and users name and end of that.
+For instance , if you have this inside you #test tag:
+```
+Here is a test for some users name like @Tom and @Jim.
+```
+That will turn into this:
+```
+Here is a test for some users name like <a href='www.mysitename.com/users/Tom>@Tom'</a> and <a href='www.mysitename.com/users/Jim>@Jim'</a>.
+```
