@@ -17,5 +17,5 @@ Here is a test for some users name like @Tom and @Jim.
 ```
 That will turn into this:
 ```
-Here is a test for some users name like <a href='www.mysitename.com/users/Tom>@Tom'</a> and <a href='www.mysitename.com/users/Jim>@Jim'</a>.
+Here is a test for some users name like <a href='www.mysitename.com/users/Tom'>@Tom</a> and <a href='www.mysitename.com/users/Jim'>@Jim</a>.
 ```

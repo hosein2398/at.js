@@ -24,7 +24,7 @@
         for (var i = 0; i < getAllMatches.length; i++) {
             var regy = new RegExp(getAllMatches[i], "g");
             var userName = getAllMatches[i].substr(1, getAllMatches[i].length);
-            tagContent = tagContent.replace(regy, "<a href='" + conf.baseUrl + userName + ">" + getAllMatches[i] + "'</a>");
+            tagContent = tagContent.replace(regy, "<a href='" + conf.baseUrl + userName + "'>" + getAllMatches[i] + "</a>");
         }
         if (conf.changeDom) {
             tagName.innerHTML = tagContent;
