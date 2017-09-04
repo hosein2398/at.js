@@ -19,3 +19,28 @@ That will turn into this:
 ```
 Here is a test for some users name like <a href='www.mysitename.com/users/Tom'>@Tom</a> and <a href='www.mysitename.com/users/Jim'>@Jim</a>.
 ```
+## Options
+
+
+## API
+##### atJs([options]) 
+Returns `string` if `changeDom` is set to false.
+
+##### options  
+Type: `Object`  
+Available options : `tagName` , `text` , `changeDom` , `baseUrl` .
+
+###### tagName
+ Type : `domNode`  
+ Required : `true` (if `test` is not defined)
+ 
+ ###### text
+ Type : `String`  
+ Required : `true` (if `tagName` is not defined)
+ 
+ ###### baseUrl
+ Type : `String`  
+ Required : `true`
+ 
+ ##### changeDom
+ Type : `Boolean`  
