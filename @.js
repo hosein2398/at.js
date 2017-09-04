@@ -3,7 +3,7 @@
         if (!conf.baseUrl) {
             throw "@js : You should define a -baseUrl- .";
         }
-        if (typeof conf.text == undefined || typeof conf.tagName == undefined) {
+        if (typeof conf.text == 'undefined' && typeof conf.tagName == 'undefined') {
             throw "@Js : You forgot to define a -text- or -tagName-";
         }
         if (conf.tagName && conf.text) {
@@ -12,15 +12,19 @@
         if (conf.text && conf.changeDom) {
             throw "@Js : you can't have -text- and -changeDom- together , -changeDom- is only allowed with tagName";
         }
-        var tagName = document.querySelector(conf.tagName);
-        var tagContent = tagName.innerText;
-        var atRegex = /@[^\s]+(?=\s)/g;
+        if (typeof conf.tagName == 'undefined') {
+            var tagContent = conf.text;
+        } else {
+            var tagName = document.querySelector(conf.tagName);
+            var tagContent = tagName.innerText;
+        }
+        var atRegex = /@[^\s]+(?=(\s|.))/g;
         var getAllMatches = tagContent.match(atRegex);
 
         for (var i = 0; i < getAllMatches.length; i++) {
             var regy = new RegExp(getAllMatches[i], "g");
-            var userName = getAllMatches[i].substr(1 , getAllMatches[i].length);
-            tagContent = tagContent.replace(regy, "<a href=" + conf.baseUrl + userName+ ">" + getAllMatches[i] + "</a>");
+            var userName = getAllMatches[i].substr(1, getAllMatches[i].length);
+            tagContent = tagContent.replace(regy, "<a href='" + conf.baseUrl + userName + ">" + getAllMatches[i] + "'</a>");
         }
         if (conf.changeDom) {
             tagName.innerHTML = tagContent;
